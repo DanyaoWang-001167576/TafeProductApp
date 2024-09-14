@@ -29,11 +29,18 @@ namespace ProductApps
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
+            //add delivery charge
+            const decimal DELIVERY_CHARGE = 25.00m;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
                 cProduct.calTotalPayment();
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
+                //add totalCharge
+                decimal totalCharge = cProduct.TotalPayment + DELIVERY_CHARGE;
+
+                //display the total charge in the totalChargeTextBlock
+                totalChargeTextBlock.Text = Convert.ToString(totalCharge);
             }
             catch (FormatException)
             {
@@ -47,6 +54,7 @@ namespace ProductApps
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
+            totalChargeTextBlock.Text = "";  //also clear the total charge field
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
