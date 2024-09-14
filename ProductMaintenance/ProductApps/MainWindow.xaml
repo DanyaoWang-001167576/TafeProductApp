@@ -25,6 +25,10 @@
    HorizontalAlignment="Left" Height="50" Margin="46,220,0,0" VerticalAlignment="Top" Width="150"/>
         <TextBlock Name="totalChargeWrapTextBlock" HorizontalAlignment="Left" Height="23" Margin="200,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
 
+        <Label Content="Total Charge After GST @ 10%:" 
+HorizontalAlignment="Left" Height="50" Margin="25,270,0,0" VerticalAlignment="Top" Width="175"/>
+        <TextBlock Name="totalChargeGSTTextBlock" HorizontalAlignment="Left" Height="23" Margin="200,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
+
 
     </Grid>
 </Window>
