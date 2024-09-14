@@ -31,6 +31,8 @@ namespace ProductApps
         {
             //add delivery charge
             const decimal DELIVERY_CHARGE = 25.00m;
+            //add wrap charge
+            const decimal WRAP_CHARGE = 5.00m;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -39,8 +41,14 @@ namespace ProductApps
                 //add totalCharge
                 decimal totalCharge = cProduct.TotalPayment + DELIVERY_CHARGE;
 
+                //add totalWrapCharge
+                decimal totalWrapCharge = cProduct.TotalPayment + DELIVERY_CHARGE + WRAP_CHARGE;
+
                 //display the total charge in the totalChargeTextBlock
                 totalChargeTextBlock.Text = Convert.ToString(totalCharge);
+
+                //display the total charge in the totalChargeWrapTextBlock
+                totalChargeWrapTextBlock.Text = Convert.ToString(totalWrapCharge);
             }
             catch (FormatException)
             {
@@ -55,6 +63,7 @@ namespace ProductApps
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
             totalChargeTextBlock.Text = "";  //also clear the total charge field
+            totalChargeWrapTextBlock.Text = ""; //clear the total wrap charge field
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
